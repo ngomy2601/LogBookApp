@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomePage from './screens/Home';
+import CameraPage from './screens/Camera';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -14,6 +15,20 @@ const App = () => {
           component={HomePage}
           options={{
             title: 'HOME',
+            headerStyle: {
+              backgroundColor: '#F9813A',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Camera"
+          component={CameraPage}
+          options={{
+            title: 'Camera',
             headerStyle: {
               backgroundColor: '#F9813A',
             },
