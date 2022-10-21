@@ -1,5 +1,5 @@
 import * as SQLite from 'expo-sqlite';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ const openDatabase = () => {
 };
 const myDB = openDatabase();
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
   const [count, setCount] = useState(0);
   const [linkInput, setLinkInput] = useState('');
   const [imageData, setImageData] = useState([]);
@@ -116,8 +116,6 @@ const HomePage = () => {
       return;
     }
   };
-
-  // console.log('result: ', result);
 
   useEffect(() => {
     createImageTable();
@@ -237,6 +235,31 @@ const HomePage = () => {
                 }}
               >
                 Add a new URL
+              </Text>
+            </Pressable>
+          </View>
+          <View>
+            <Pressable
+              style={{
+                margin: 10,
+                width: 200,
+                height: 40,
+                backgroundColor: '#F9813A',
+                borderRadius: 15,
+                textAlign: 'center',
+              }}
+              onPress={() => navigation.navigate('Camera')}
+            >
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                  color: 'white',
+                  paddingTop: 10,
+                }}
+              >
+                Open Camera
               </Text>
             </Pressable>
           </View>
