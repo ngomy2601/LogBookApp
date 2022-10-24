@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Camera } from 'expo-camera';
-import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 import {
   Text,
@@ -9,12 +8,12 @@ import {
   Button,
   SafeAreaView,
   Image,
-  Alert,
 } from 'react-native';
-const CameraPage = ({ navigation }) => {
+
+const CameraPage = () => {
   let cameraRef = useRef();
-  const [cameraPermission, setCameraPermission] = useState();
   const [galleryPermission, setGalleryPermission] = useState();
+  const [cameraPermission, setCameraPermission] = useState();
   const [takenPhoto, setTakenPhoto] = useState();
 
   const handleCameraPermission = async () => {

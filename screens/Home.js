@@ -53,7 +53,6 @@ const HomePage = ({ navigation }) => {
         for (let i = 0; i < results.rows.length; ++i)
           temp.push(results.rows.item(i));
         const response = temp.map((item) => item.image_URL);
-        // console.log('response: ', response);
         setImageData(response);
       });
     });
@@ -86,8 +85,6 @@ const HomePage = ({ navigation }) => {
     }
     const response = checkURL(linkInput);
     if (response == true) {
-      // alert('Added successfully!');
-      // setImages([...images, linkInput]);
       myDB.transaction((tx) => {
         tx.executeSql(
           'INSERT INTO table_images (image_URL) VALUES (?)',
